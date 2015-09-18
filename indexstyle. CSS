@@ -1,0 +1,8 @@
+ h1{background-color:red;}
+         h1{border:solid blue 9px;}
+         body {
+    background-image: url("http://38.media.tumblr.com/f0bda0f886f25fe46db495c7620e2adf/tumblr_nn53ya70CN1suu3yio1_500.gif");
+}
+p{color:rgb(0, 255, 255)}
+p{border:solid red 5px
+}
