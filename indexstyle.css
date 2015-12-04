@@ -1,8 +1,16 @@
- h1{background-color:red;}
-         h1{border:solid blue 9px;}
-         body {
-    background-image: url("http://38.media.tumblr.com/f0bda0f886f25fe46db495c7620e2adf/tumblr_nn53ya70CN1suu3yio1_500.gif");
-}
-p{color:rgb(0, 255, 255)}
+body{background-image:url("http://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif");}
+p{color:rgb(0, 0, 0)}
 p{border:solid red 5px
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul{background-color:red;}
+ul{border:6px inset blue;}
+
+h2{color:yellow;}
+p{background-color:white;}
+
+

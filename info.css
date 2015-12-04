@@ -1,0 +1,29 @@
+body {
+    background-image: url("https://s-media-cache-ak0.pinimg.com/originals/ca/68/73/ca6873339d2734623797a3e03e20b06f.jpg");
+}
+ div {border-style: solid;}
+ 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: green;
+}
