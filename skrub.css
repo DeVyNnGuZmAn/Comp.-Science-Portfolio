@@ -1,0 +1,27 @@
+h1{
+    text-align:center;
+    border-style: ridge;
+    border-width: 10px;
+    border-color:blue;
+    background-color:white;
+  
+}
+
+p{
+  background-color:white;
+  border-style:solid;
+  border-width:5px;
+  border-color:yellow;
+  text-align:center;
+}
+
+  body{
+    background-image: url("http://wallpapercave.com/wp/dxaDz8c.jpg");
+}
+
+
+#choice1 {
+  border-style:ridge;
+  border-width:5px;
+  border-color:red;
+}
