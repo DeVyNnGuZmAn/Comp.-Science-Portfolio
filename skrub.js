@@ -209,9 +209,7 @@ function addText1() {
                     container.appendChild(choice1h);
                     container.appendChild(choice2h);
 
-
                 })
-
                 choice2f.addEventListener("click", function() {
 
                     var firstParj = document.createElement("p");
@@ -237,6 +235,7 @@ function addText1() {
 
 
                 })
+            })
                 choice1d.addEventListener("click", function() {
 
 
@@ -262,7 +261,7 @@ function addText1() {
 
 
                 })
-            })
+            
         })
         choice2c.addEventListener("click", function() {
 
@@ -360,6 +359,7 @@ function addText1() {
                 container.appendChild(choice1g);
                 container.appendChild(choice2g);
 
+
                 choice1g.addEventListener("click", function() {
 
                     var firstPari = document.createElement("p");
@@ -423,9 +423,8 @@ function addText1() {
 
             })
         })
+
     })
-
-
 
 
 
