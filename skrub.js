@@ -61,7 +61,7 @@ function addText1() {
     container.appendChild(choice2b);
 
 
-    //If they pick the first choice
+    //If they pick the first choice to continue with story
     choice1b.addEventListener("click", function() {
 
         var firstPara = document.createElement("p");
@@ -96,6 +96,7 @@ function addText1() {
         container.appendChild(choice1c);
         container.appendChild(choice2c);
 
+        //the first choice of 1b(Continue with story)
         choice1c.addEventListener("click", function() {
 
             var firstParb = document.createElement("p");
@@ -140,7 +141,7 @@ function addText1() {
             container.appendChild(choice1d);
             container.appendChild(choice2d);
 
-
+            //bust to the front choice 2
             choice2d.addEventListener("click", function() {
 
                 var firstParf = document.createElement("p");
@@ -176,6 +177,7 @@ function addText1() {
                 container.appendChild(choice1f);
                 container.appendChild(choice2f);
 
+                //go in there (choice 2f)
                 choice1f.addEventListener("click", function() {
 
                     var firstParh = document.createElement("p");

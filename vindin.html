@@ -1,0 +1,185 @@
+< !DOCTYPE html >
+    <html>
+
+<head>
+        <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="vindin.css" class="css">
+    <link rel="stylesheet" type="text/css" href="vindinbar.css">
+</head>
+<style>
+/* unvisited link */
+a:link {
+    color: black;
+}
+
+/* visited link */
+a:visited {
+    color: black;
+}
+
+/* mouse over link */
+a:hover {
+    color: White;
+    background-color:black;
+}
+
+/* selected link */
+a:active {
+    color: White;
+} 
+</style>
+<body>
+
+<ul id="vindinbar">
+<li><a id="text" href="aboutme.html">All about me </a></li> 
+     <li><a id="text" href="info.html">Info</a></li>
+ <li><a id="text" href="todolist.html">Todo List </a></li>
+<li><a id="text" href="calc.html"> Calculator</a>
+<li><a id="text" href="http://i.imgur.com/yRstFxS.gif">Mind Blowing LG Secret</a>
+<li><a id="text" href="skrub.html">Mini Game</a>
+</ul>
+
+    <h1>Vindinium</h1>
+    
+    <h1>What is Vindium?</h1>
+    <p>Vindinium is an AI programming game. You have to take the control of a hero using the programming language of your choice.
+        <br> You fight with other AI for a predetermined number of turns and the hero with the greatest amount of gold wins.</br>
+    </p>
+    <h1>How do you play?</h1>
+    <p>You play by writing code for your bot and playing against others. You can program your bot to make it attack others or a specific bot.
+        <br>Plus, if your bot is low on health then you can make it go to the tavern for health</br>
+    </p>
+    <h2>Here is my code </h2>
+    <pre><code>
+    
+    var Bot = require('bot');
+var PF = require('pathfinding');
+var bot = new Bot('lkg242u7', 'training', 'http://vindinium.org'); //Put your bot's code here and change training to Arena when you want to fight others.
+// var bot = new Bot('76oorl4r', 'arena', 'http://52.53.211.7:9000'); //Put your bot's code here and change training to Arena when you want to fight others.
+var goDir;
+var Promise = require('bluebird');
+Bot.prototype.botBrain = function() {
+
+    return new Promise(function(resolve, reject) {
+        var this = bot;
+
+
+
+        //////* Write your bot below Here *//////
+        //////* Set `myDir` in the direction you want to go and then bot.goDir is set to myDir at the bottom *////////
+
+        /*                                      *
+         * This Code is global data!            *
+         *                                      */
+
+        // Set myDir to what you want and it will set bot.goDir to that direction at the end.  Unless it is "none"
+
+        var myPos = [bot.yourBot.pos.x, bot.yourBot.pos.y];
+
+        var enemyBots = [];
+        if (bot.yourBot.id != 1) enemyBots.push(bot.bot1);
+        if (bot.yourBot.id != 2) enemyBots.push(bot.bot2);
+        if (bot.yourBot.id != 3) enemyBots.push(bot.bot3);
+        if (bot.yourBot.id != 4) enemyBots.push(bot.bot4);
+
+
+        /*                                      *
+         * This Code Decides WHAT to do         *
+         *                                      */
+        if (task === "bot.taverns") {
+            var closestTavern = bot.taverns[0];
+            for (var i = 0; i < bot.taverns.length; i++) {
+                if (bot.findDistance(myPos, closestTavern) > bot.findDistance(myPos, bot.taverns[i])) {
+                    closestTavern = bot.taverns[i];
+                }
+            }
+        }
+
+        /*                                      *
+         * This Code Determines HOW to do it    *
+         *                                      */
+
+        // This Code find the nearest freemine and sets myDir toward that direction //
+        if (task === "freemines") {
+            var closestMine = bot.freeMines[0];
+            for (i = 0; i < bot.freeMines.length; i++) {
+                if (bot.findDistance(myPos, closestMine) > bot.findDistance(myPos, bot.freeMines[i])) {
+                    closestMine = bot.freeMines[i];
+                }
+            }
+            console.log("Claiming a Free Mine!");
+            myDir = bot.findPath(myPos, closestMine);
+        }
+
+
+        /*                                                                                                                              *
+         * This Code Sets your direction based on myDir.  If you are trying to go to a place that you can't reach, you move randomly.   *
+         * Otherwise you move in the direction set by your code.  Feel free to change this code if you want.                            */
+        if (myDir === "none") {
+            console.log("Going Random!");
+            var rand = Math.floor(Math.random() * 4);
+            var dirs = ["north", "south", "east", "west"];
+            bot.goDir = dirs[rand];
+        }
+        else {
+            bot.goDir = myDir;
+        }
+
+        var attacking = false;
+        var victim = 0;
+        if (Bots[0].mineCount > Bots[1].mineCount && Bots[0].mineCount > Bots[2].mineCount) {
+            victim = 0;
+            attacking = true;
+        }
+        else if (Bots[1].mineCount > Bots[2].mineCount && Bots[1].mineCount > Bots[0].mineCount) {
+            victim = 1;
+            attacking = true;
+        }
+        else if (Bots[2].mineCount > Bots[1].mineCount && Bots[2].mineCount > Bots[0].mineCount) {
+            victim = 2;
+            attacking = true;
+        }
+        else {
+            victim = 0;
+            attacking = false;
+        }
+
+
+
+        /*                                                                                                                              *
+         * This Code Sets your direction based on myDir.  If you are trying to go to a place that you can't get to, you will move randomly.   *
+         * Otherwise you move in the direction set by the code.  Feel free to change this code if you want.                            */
+        //if else statement to tell the bot what to do and when 
+
+        if (bot.yourBot.life <= 52) {
+            bot.goDir = bot.findPath(myPos, closestTavern);
+        }
+        else if (bot.yourBot.life > 70 && bot.freeMines.length > 0) {
+            bot.goDir = bot.findPath(myPos, nearMine);
+        }
+        else if (Bots[victim].life + 30 < bot.yourBot.life && Bots[victim].mineCount > 1 &&
+            attacking === true) {
+            bot.goDir = bot.findPath(myPos, [Bots[victim].pos.x, Bots[victim].pos.y]);
+        }
+        else {
+            bot.goDir = bot.findPath(myPos, everyMine);
+        }
+        if (bot.yourBot.everyMine) {
+            bot.goDir = bot.findPath(myPos, closestTavern);
+        }
+        else if (bot.yourBot.mineCount <= 3 && bot.yourBot.life > 50 && Bots[victim].mineCount >= 4) {
+            bot.goDir = bot.findPath(myPos, [Bots[victim].pos.x, Bots[victim].pos.y]);
+        }
+
+        ///////////* DON'T REMOVE ANTYTHING BELOW THIS LINE *//////////////
+        resolve();
+    });
+}
+bot.runGame();
+
+</code></pre>
+
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+body {background-image: url("http://wallpaperswide.com/download/white_wooden_slats-wallpaper-1024x768.jpg");}
+
+h1 {
+    border-style: ridge;
+    border-color:Black;
+    background-color:white;
+    border-width:6px;
+    text-align: center;
+}
+p {background-color: white;
+   border-style:ridge;
+   border-color:black;
+   border-width:4px;
+   text-align: center;
+}
+
+h2 {
+    background-color:white;
+    border-style:ridge;
+    border-width:4.75px;
+    border-color:black;
+    text-align: center;
+}
+pre {
+    background-color: white;
+   border-style:ridge;
+   border-color:black;
+   border-width:6px;
+   padding-left: .5cm;
+}
+
+li a:hover{
+ background-color:black; 
+ color:white;
+}

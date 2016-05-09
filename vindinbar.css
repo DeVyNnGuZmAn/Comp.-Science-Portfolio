@@ -1,0 +1,17 @@
+#vindinbar{
+    text-align:center;
+}
+
+#vindinbar li{
+    display:inline-block;
+    border:2px solid black;
+    padding:8px;
+    border-width:5px;
+}
+ 
+ #vindinbar {
+  background: -webkit-linear-gradient(White); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(white); /* Standard syntax */
+}
